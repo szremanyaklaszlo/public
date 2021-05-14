@@ -1,0 +1,185 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>SportsBet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/events.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="navbar-brand">
+            <img class="player-name" id="profile-icon" alt="search" src="photo/profile-icon.png">
+            <span class="player-name" th:text="${playerModel.username}"></span>
+            <img id="cash-icon" alt="search" src="photo/cash-icon.png">
+            <span th:text="${playerModel.balance != null} ? ${playerModel.balance} : '0' "></span>
+            <span th:text="${playerModel.currency}"></span>
+            <form th:if="${playerModel.balance == null or playerModel.balance <= rechargeBoundary}"
+                class="d-inline-block" th:action="@{recharge}" method="post">
+                <button type="submit" class="btn btn-primary">Recharge</button>
+            </form>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active pr-4">
+                    <a class="nav-link" href="/events" th:text=#{nav.events}>Events</a>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/profile" th:text=#{nav.profile}>Profile</a>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/history" th:text=#{nav.history}>History</a>
+                </li>
+                <li class="nav-item pr-4 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'en').build().toUriString()}}">English</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'hu').build().toUriString()}}">Magyar</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link active button-decoration" href="/logout" th:text=#{nav.logout}>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container col-xl-6 col-lg-8 col-md-10">
+        <h1 class="text-dark mb-lg-3 mb-md-2 mb-xs-1 mt-xl-4 mt-lg-4 mt-md-3 mt-xs-1" th:text=#{events.title}></h1>
+        <ul class="w-100 table-controller-head">
+            <li class="dropdown btn-group nav-item w-100">
+                <a class="btn btn-secondary btn-sm dropdown-toggle order-button" href="#"
+                    id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" th:text=#{table.sort}></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"
+                        th:href="@{'/events?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + title + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                        th:text="#{table.title}"></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item"
+                        th:href="@{'/events?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + startTime + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                        th:text=#{table.time}></a>
+                </div>
+                <a class="btn btn-secondary btn-sm" id="direction-button" role="button"
+                    aria-haspopup="true" aria-expanded="false"
+                    th:href="@{'/events?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection == 'DESC' ? 'ASC' : 'DESC'} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                    th:text="${sortDirection == 'DESC' ? '↓' : '↑'}"></a>
+                <form class="input-group" th:action="@{search}" method="post">
+                    <input type="text" class="form-control py-2 border-right-0 border"
+                        th:placeholder=#{table.search} th:name="tableSearchFilter"
+                        th:value="${tableSearchFilter}">
+                    <span class="input-group-append">
+                        <a class="btn btn-secondary btn-sm" id="search-input-close" th:text="'☓'"
+                            role="button" aria-haspopup="true" aria-expanded="false"
+                            th:href="@{'/events?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection}}"></a>
+                    </span>
+                    <button class="btn btn-secondary nav-item" id="search-button" type="submit">
+                        <img id="search-icon" alt="search" src="photo/search.png">
+                    </button>
+                </form>
+            </li>
+        </ul>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" th:text=#{table.title} class="title-width"></th>
+                        <th scope="col" th:text=#{table.time} class="time-width"></th>
+                        <th scope="col" th:text=#{table.home}></th>
+                        <th scope="col" th:text=#{table.draw}></th>
+                        <th scope="col" th:text=#{table.away}></th>
+                        <th scope="col" class="seeall-width"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${events.empty}">
+                        <td colspan="6" th:text=#{table.nodata}></td>
+                    </tr>
+                    <tr th:each="event : ${events}">
+                        <td>
+                            <span th:text="${event.title}">N/A</span>
+                        </td>
+                        <td>
+                            <span th:text="${event.time}">N/A</span>
+                        </td>
+                        <td>
+                            <span th:text="${event.homeTeamWinOdd} ?: 'N/A'">N/A</span>
+                        </td>
+                        <td>
+                            <span th:text="${event.drawOdd} ?: 'N/A'">N/A</span>
+                        </td>
+                        <td>
+                            <span th:text="${event.awayTeamWinOdd} ?: 'N/A'">N/A</span>
+                        </td>
+                        <td>
+                            <a  th:href="@{'/bet?sportEventId=' + ${event.id}}"
+                                th:text="#{events.seeall} + ' (' + ${event.numberOfOutcomes} + ')'"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation" class="d-flex justify-content-end w-100">
+            <ul th:if="${totalPages} > 1" class="pagination">
+                <li class="page-item" th:classappend="${page} == 1 ? disabled">
+                    <a class="page-link" th:text=#{table.first}
+                        th:href="@{'/events?page=1' + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item" th:classappend="${page} < 2 ? disabled">
+                    <a class="page-link" th:text=#{table.previous}
+                        th:href="@{'/events?page=' + ${page - 1} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" th:text="${page} + ' ' + #{table.of} + ' '+ ${totalPages}"
+                        th:href="@{'/events?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item" th:classappend="${totalPages == page} ? disabled">
+                    <a class="page-link" th:text=#{table.next}
+                        th:href="@{'/events?page=' + ${page + 1} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item" th:classappend="${totalPages == page} ? disabled">
+                    <a class="page-link" th:text=#{table.last}
+                        th:href="@{'/events?page=' + ${totalPages} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+            </ul>
+        </nav>
+        <nav aria-label="Page navigation" class="d-flex justify-content-end w-100">
+            <ul class="pagination">
+                <li class="dropdown btn-group nav-item">
+                    <a class="btn btn-secondary btn-sm dropdown-toggle size-button" href="#"
+                        id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" th:text=#{table.size}></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{'/events?page=' + ${page} + '&pageSize=' + 5 + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                            th:text="5"></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{'/events?page=' + ${page} + '&pageSize=' + 10 + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                            th:text="10"></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{'/events?page=' + ${page} + '&pageSize=' + 20 + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                            th:text="20"></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

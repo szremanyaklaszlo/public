@@ -1,0 +1,87 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>SportsBet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <span class="navbar-brand">SportsBet</span>
+        <button class="navbar-toggler float-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/home" th:text=#{nav.home}></a>
+                </li>
+                <li class="nav-item active pr-4">
+                    <a class="nav-link" href="/events" th:text=#{nav.events}></a>
+                </li>
+                <li class="nav-item pr-4 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'en').build().toUriString()}}">English</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'hu').build().toUriString()}}">Magyar</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link active button-decoration" href="/login" th:text=#{nav.login}></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container h-100">
+        <div class="row height-65">
+            <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5 mx-auto my-auto">
+                <form name="login" th:action="@{/login}" method="post">
+                    <h2 class="sign-in" th:text=#{login.title}>Sign in!</h2>
+                    <div class="login-input-group">
+                        <div class="form-group">
+                            <label for="username"></label>
+                            <input type="text" class="form-control" name="username"
+                                th:placeholder="'Email/' + #{login.username}"></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="password"></label>
+                            <input type="password" class="form-control" name="password"
+                                th:placeholder=#{login.password}></input>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label for="rememberMe" class="form-check-label" th:text=#{login.remember}>Remember me</label>
+                        </div>
+                        <div th:if="${param.error}" id="warning-message" th:text=#{login.error}>Invalid email or
+                            password.</div>
+                        <div th:if="${param.logout}" id="logout-message" th:text=#{logout.success}>You have been logged
+                            out.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary sign-in-button" th:text=#{login.signin}>Sign in</button>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <a href="/registration" id="registration" th:text=#{login.registration}>Registration</a>
+                        </div>
+                        <div>
+                            <a href="#" id="forgoten-password" th:text=#{login.forgotpassword}>Forgot your password?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

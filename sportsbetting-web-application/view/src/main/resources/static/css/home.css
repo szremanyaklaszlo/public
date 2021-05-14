@@ -1,0 +1,55 @@
+#paragraph {
+	line-height: 1.5rem;
+}
+
+.email {
+	color: #007bff;
+}
+
+.lable {
+	border: 1px solid;
+	border-radius: 24px;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.spring {
+	color: #142e0e;
+	border-color: #142e0e;
+	background-color: rgba(72, 168, 50, 0.5);
+}
+
+.view {
+	color: #2c2e0d;
+	border-color: #2c2e0d;
+	background-color: rgba(207, 212, 61, 0.6);
+}
+
+.java {
+	color: #241804;
+	border-color: #241804;
+	background-color: rgba(232, 155, 21, 0.7);
+}
+
+.maven {
+	color: #240422;
+	border-color: #240422;
+	background-color: rgba(194, 31, 186, 0.5);
+}
+
+.test {
+	color: #040c1f;
+	border-color: #040c1f;
+	background-color: rgba(31, 82, 204, 0.5);
+}
+
+.log {
+	color: #330d09;
+	border-color: #330d09;
+	background-color: rgba(163, 59, 47, 0.5);
+}
+.etc {
+	color: #021410;
+	border-color: #021410;
+	background-color: rgba(197, 201, 200, 0.7);
+}

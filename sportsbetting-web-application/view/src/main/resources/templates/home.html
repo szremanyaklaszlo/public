@@ -1,0 +1,82 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>SportsBet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <span class="navbar-brand">SportsBet</span>
+        <button class="navbar-toggler float-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active pr-4">
+                    <a class="nav-link" href="/home" th:text=#{nav.home}></a>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/events" th:text=#{nav.events}></a>
+                </li>
+                <li class="nav-item pr-4 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'en').build().toUriString()}}">English</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'hu').build().toUriString()}}">Magyar</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link active button-decoration" href="/login" th:text=#{nav.login}></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div
+        class="container col-xl-7 col-lg-9 col-md-10 col-xs-12 mb-lg-3 mb-md-2 mb-xs-1 mt-xl-4 mt-lg-4 mt-md-3 mt-xs-1">
+        <p class="h1" th:text=#{home.welcome}></p>
+        <p class="h4 p-2 pl-3" th:text=#{home.aboutme.title}></p>
+        <p id="paragraph" class="h6 pl-3" th:text=#{home.aboutme.text}></p>
+        <a class="h6 pl-3 d-block" href="https://github.com/szremanyaklaszlo/public.git">https://github.com/szremanyaklaszlo/public.git</a>
+        <p id="paragraph" class="h6 pl-3" th:text=#{home.aboutme.footer}></p>
+        <p class="h6 pl-3 d-block email">sz.laszlo96@gmail.com</p>
+        <a class="h6 pl-3 d-block" href="https://www.linkedin.com/in/laszlo-szremanyak">www.linkedin.com/in/laszlo-szremanyak</a>
+        <p class="h4 p-2 pl-3" th:text=#{home.aboutsite.title}></p>
+        <p id="paragraph" class="h6 pl-3" th:text=#{home.aboutsite.text.first}></p>
+        <p id="paragraph" class="h6 pl-3" th:text=#{home.aboutsite.text.second}></p>
+        <p id="paragraph" class="h6 pl-3" th:text=#{home.aboutsite.pm}></p>
+        <p class="h4 p-2 pl-3" th:text=#{home.bye}></p>
+        <div class="p-2 pl-3 float-left">
+            <span class="d-inline-block m-1 p-2 lable java">Java</span>
+            <span class="d-inline-block m-1 p-2 lable maven">Maven</span>
+            <span class="d-inline-block m-1 p-2 lable spring">Spring Boot</span>
+            <span class="d-inline-block m-1 p-2 lable spring">Spring MVC</span>
+            <span class="d-inline-block m-1 p-2 lable spring">Spring Data JPA</span>
+            <span class="d-inline-block m-1 p-2 lable spring">Spring AOP</span>
+            <span class="d-inline-block m-1 p-2 lable spring">Spring Security</span>
+            <span class="d-inline-block m-1 p-2 lable view">Thymeleaf</span>
+            <span class="d-inline-block m-1 p-2 lable view">HTML</span>
+            <span class="d-inline-block m-1 p-2 lable view">CSS</span>
+            <span class="d-inline-block m-1 p-2 lable view">Bootstrap 4</span>
+            <span class="d-inline-block m-1 p-2 lable test">JUnit 5</span>
+            <span class="d-inline-block m-1 p-2 lable test">Mockito</span>
+            <span class="d-inline-block m-1 p-2 lable log">Logging</span>
+            <span class="d-inline-block m-1 p-2 lable etc">Etc.</span>
+        </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

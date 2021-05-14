@@ -1,0 +1,181 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>SportsBet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/history.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="navbar-brand">
+            <img class="player-name" id="profile-icon" alt="search" src="photo/profile-icon.png">
+            <span class="player-name" th:text="${playerModel.username}"></span>
+            <img id="cash-icon" alt="search" src="photo/cash-icon.png">
+            <span th:text="${playerModel.balance != null} ? ${playerModel.balance} : '0' "></span>
+            <span th:text="${playerModel.currency}"></span>
+            <form th:if="${playerModel.balance == null or playerModel.balance <= rechargeBoundary}"
+                class="d-inline-block" th:action="@{recharge}" method="post">
+                <button type="submit" class="btn btn-primary">Recharge</button>
+            </form>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/events" th:text=#{nav.events}>Events</a>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/profile" th:text=#{nav.profile}>Profile</a>
+                </li>
+                <li class="nav-item active pr-4">
+                    <a class="nav-link" href="/history" th:text=#{nav.history}>History</a>
+                </li>
+                <li class="nav-item pr-4 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'en').build().toUriString()}}">English</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'hu').build().toUriString()}}">Magyar</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link active button-decoration" href="/logout"
+                        th:text=#{nav.logout}>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container col-xl-6 col-lg-8 col-md-10">
+        <div class="d-flex mt-xl-4 mt-lg-4 mt-md-3 mt-xs-1">
+            <h2 class="mr-auto text-dark" th:text=#{history.title}>Wager history</h2>
+            <ul class="pt-2">
+                <li class="dropdown btn-group nav-item">
+                    <a class="btn btn-secondary btn-sm dropdown-toggle order-button" href="#"
+                        id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" th:text=#{table.sort}>Sort by</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{'/history?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + outcome.bet.sportEvent.title + '&sortDirection=' + ${sortDirection} }"
+                            th:text="Title"></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{'/history?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + outcome.bet.sportEvent.startTime + '&sortDirection=' + ${sortDirection}}"
+                            th:text="Time"></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{'/history?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + amount + '&sortDirection=' + ${sortDirection}}"
+                            th:text="Amount"></a>
+                    </div>
+                    <a class="btn btn-secondary btn-sm" id="direction-button" role="button"
+                        aria-haspopup="true" aria-expanded="false"
+                        th:href="@{'/history?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection == 'DESC' ? 'ASC' : 'DESC'} }"
+                        th:text="${sortDirection == 'DESC' ? '↓' : '↑'}"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="title-width" th:text=#{table.title}>Title</th>
+                        <th scope="col" class="time-width" th:text=#{table.time}>Time</th>
+                        <th scope="col" th:text=#{table.outcome}>Outcome</th>
+                        <th scope="col" th:text=#{table.amount}>Amount</th>
+                        <th scope="col" th:text=#{table.expected}>Expected</th>
+                        <th scope="col" th:text=#{table.result}>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${wagers.empty}">
+                        <td colspan="6" th:text=#{table.nodata}>No Events Available</td>
+                    </tr>
+                    <tr th:each="wager : ${wagers}">
+                        <td>
+                            <span th:text="${wager.title}">N/A</span>
+                        </td>
+                        <td>
+                            <span th:text="${wager.time}">N/A</span>
+                        </td>
+                        <td>
+                            <span th:text="${wager.outcomeDescription}">N/A</span>
+                        </td>
+                        <td>
+                            <span th:text="${wager.amount}">N/A</span>
+                        </td>
+                        <td
+                            th:classappend="${(wager.isProcessed && wager.isWin ? 'win-highlight' : '') + (wager.isProcessed && !wager.isWin ? 'lose-highlight' : '')}">
+                            <span
+                                th:text="${wager.outcomeOdd.multiply(wager.amount).setScale(0, 5)}">N/A</span>
+                        </td>
+                        <td>
+                            <span
+                                th:text="${wager.isProcessed ? (wager.isWin ? 'Win' : 'Lose') : '-'}">N/A</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation" class="d-flex justify-content-end  w-100">
+            <ul th:if="${totalPages} > 1" class="pagination">
+                <li class="page-item" th:classappend="${page} == 1 ? disabled">
+                    <a class="page-link" th:text=#{table.first}
+                        th:href="@{'/history?page=1' + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item" th:classappend="${page} < 2 ? disabled">
+                    <a class="page-link" th:text=#{table.previous}
+                        th:href="@{'/history?page=' + ${page - 1} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" th:text="${page} + ' ' + #{table.of} + ' '+ ${totalPages}"
+                        th:href="@{'/history?page=' + ${page} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item" th:classappend="${totalPages == page} ? disabled">
+                    <a class="page-link" th:text=#{table.next}
+                        th:href="@{'/history?page=' + ${page + 1} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+                <li class="page-item" th:classappend="${totalPages == page} ? disabled">
+                    <a class="page-link" th:text=#{table.last}
+                        th:href="@{'/history?page=' + ${totalPages} + '&pageSize=' + ${pageSize} + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"></a>
+                </li>
+            </ul>
+        </nav>
+        <nav aria-label="Page navigation" class="d-flex justify-content-end w-100">
+            <ul class="pagination">
+                <li class="dropdown btn-group nav-item">
+                    <a class="btn btn-secondary btn-sm dropdown-toggle size-button" href="#"
+                        id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" th:text=#{table.size}>Size</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{'/history?page=' + ${page} + '&pageSize=' + 5 + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                            th:text="5"></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{'/history?page=' + ${page} + '&pageSize=' + 10 + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                            th:text="10"></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{'/history?page=' + ${page} + '&pageSize=' + 20 + '&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&tableSearchFilter=' + ${tableSearchFilter}}"
+                            th:text="20"></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+[
+	{
+		"title": "Arsenal vs Chelsea",
+		"startTime": "2020-12-03T18:30:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "Winner",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "1.6"
+							}
+						]
+					},
+					{
+						"description": "Chelsea",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "1.5"
+							}
+						]
+					},
+					{
+						"description": "Draw",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.5"
+							}
+						]
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "1.7"
+							}
+						]
+					},
+					{
+						"description": "1:1",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.1"
+							}
+						]
+					},
+					{
+						"description": "2:1",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.4"
+							}
+						]
+					},
+					{
+						"description": "3:1",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "4.3"
+							}
+						]
+					},
+					{
+						"description": "1:2",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.2"
+							}
+						]
+					},
+					{
+						"description": "1:3",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.5"
+							}
+						]
+					},
+					{
+						"description": "2:2",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.6"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Barcelona vs Real Madrid",
+		"startTime": "2020-12-03T18:30:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "Winner",
+				"outcomes": [
+					{
+						"description": "Barcelona",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "1.6"
+							}
+						]
+					},
+					{
+						"description": "Real Madrid",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "1.5"
+							}
+						]
+					},
+					{
+						"description": "Draw",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.5"
+							}
+						]
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "1.7"
+							}
+						]
+					},
+					{
+						"description": "1:1",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.1"
+							}
+						]
+					},
+					{
+						"description": "2:1",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.4"
+							}
+						]
+					},
+					{
+						"description": "3:1",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "4.3"
+							}
+						]
+					},
+					{
+						"description": "1:2",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.2"
+							}
+						]
+					},
+					{
+						"description": "1:3",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.5"
+							}
+						]
+					},
+					{
+						"description": "2:2",
+						"outcomeOdds": [
+							{
+								"validFrom": "2020-06-03T00:00:00",
+								"validUntil": "2021-12-03T18:30:00",
+								"value": "3.6"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]
+

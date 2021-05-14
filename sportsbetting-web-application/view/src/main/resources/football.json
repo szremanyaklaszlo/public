@@ -1,0 +1,51 @@
+[
+	{
+		"title": "Arsenal vs Chelsea",
+		"homeTeam": "Arsenal",
+		"awayTeam": "Chelsea",
+		"startTime": "2020-10-17T18:00:00",
+		"endTime": "2020-10-17T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"value": 1.6
+					},
+					{
+						"description": "Chelsea",
+						"value": 1.4
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					},
+					{
+						"description": "0:2",
+						"value": 4
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					}
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,22 @@
+.profile-container {
+	border: solid;
+	border-radius: 10px;
+	border-color: rgba(18, 29, 41, 0.3);
+	padding: 6px;
+	flex: 1 1 150px;
+	min-width: 300px;
+	max-width: 500px;
+}
+
+.profile-container span {
+	color: #121d29;
+	font-size: 1.5rem;
+}
+
+.profile-title {
+	color: #121d29;
+}
+
+.data-name {
+	opacity: 0.8;
+}

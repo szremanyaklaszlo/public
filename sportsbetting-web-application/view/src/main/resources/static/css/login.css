@@ -1,0 +1,52 @@
+.height-65 {
+	height: 65%;
+}
+
+.sign-in {
+	color: #121d29;
+	font-size: 3rem;
+	padding-bottom: 20px;
+}
+
+.form-group {
+	margin-bottom: 6px;
+}
+
+.login-input-group {
+	font-weight: 200;
+	margin-bottom: 20px;
+}
+
+.sign-in-button {
+	color: #121d29;
+	font-weight: 500;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #121d29;
+	border-radius: 1rem;
+}
+
+.form-check-label {
+	color: #121d29;
+}
+
+.sign-in-button:hover {
+	color: #ffffff;
+	background-color: #121d29;
+	border-color: #121d29;
+}
+
+#warning-message {
+	color: #ea1813;
+}
+
+#logout-message {
+	color: #00b316;
+}
+
+#registration, #forgoten-password {
+	color: #121d29;
+	font-weight: 200;
+}

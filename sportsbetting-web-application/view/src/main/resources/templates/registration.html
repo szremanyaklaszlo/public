@@ -1,0 +1,108 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>SportsBet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <span class="navbar-brand">SportsBet</span>
+        <button class="navbar-toggler float-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/home" th:text=#{nav.home}></a>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/events" th:text=#{nav.events}></a>
+                </li>
+                <li class="nav-item pr-4 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'en').build().toUriString()}}">English</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'hu').build().toUriString()}}">Magyar</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link active button-decoration" href="/login" th:text=#{nav.login}></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container h-100">
+        <div class="row h-75">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-auto">
+                <form th:action="@{save_player}" th:object="${registrationModel}" method="post">
+                    <h2 th:text=#{registration.title}>Registration</h2>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" th:field="*{firstName}" class="form-control"
+                            th:placeholder="#{player.firstname}"></input>
+                        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                            class="small text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" th:field="*{lastName}" class="form-control"
+                            th:placeholder="#{player.lastname}"></input>
+                        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                            class="small text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="email" th:field="*{email}" class="form-control"
+                            th:placeholder=#{player.email}></input>
+                        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                            class="small text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" th:field="*{username}" class="form-control"
+                            th:placeholder=#{player.username}></input>
+                        <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                            class="small text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <select name="currency" th:field="*{currency}">
+                            <option
+                                th:each="currency : ${T(com.training.sportsbetting.domain.Currency).values()}"
+                                th:value="${currency}" th:text="${currency}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="date" th:field="*{birth}" class="form-control"
+                            th:placeholder=#{player.birth}></input>
+                        <div th:if="${#fields.hasErrors('birth')}" th:errors="*{birth}"
+                            class="small text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="password" th:field="*{password}" class="form-control"
+                            th:placeholder=#{player.password}></input>
+                        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                            class="small text-danger"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" th:text=#{registration.signup}>Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+</body>
+</html>

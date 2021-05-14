@@ -1,0 +1,27 @@
+.order-button {
+	border-radius: 16px;
+	margin-right: 6px;
+	background-color: #546367;
+	padding-top: 6px;
+}
+
+#direction-button {
+	box-sizing: border-box;
+	border-radius: 16px;
+	margin-right: 6px;
+	background-color: #546367;
+	padding-top: 6px;
+}
+
+.size-button {
+	background-color: #546367;
+	padding-top: 6px;
+}
+
+.win-highlight {
+	background-color: #46eb34;
+}
+
+.lose-highlight {
+	background-color: #ff3030;
+}

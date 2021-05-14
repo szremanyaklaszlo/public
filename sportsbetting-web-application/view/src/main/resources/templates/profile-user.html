@@ -1,0 +1,102 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>SportsBet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="navbar-brand">
+            <img class="player-name" id="profile-icon" alt="search" src="photo/profile-icon.png">
+            <span class="player-name" th:text="${playerModel.username}"></span>
+            <img id="cash-icon" alt="search" src="photo/cash-icon.png">
+            <span th:text="${playerModel.balance != null} ? ${playerModel.balance} : '0' "></span>
+            <span th:text="${playerModel.currency}"></span>
+            <form th:if="${playerModel.balance == null or playerModel.balance <= rechargeBoundary}"
+                class="d-inline-block" th:action="@{recharge}" method="post">
+                <button type="submit" class="btn btn-primary">Recharge</button>
+            </form>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/events" th:text=#{nav.events}>Events</a>
+                </li>
+                <li class="nav-item active pr-4">
+                    <a class="nav-link" href="/profile" th:text=#{nav.profile}>Profile</a>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link" href="/history" th:text=#{nav.history}>History</a>
+                </li>
+                <li class="nav-item pr-4 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'en').build().toUriString()}}">English</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                            th:href="@{${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest().replaceQueryParam('lang', '').queryParam('lang', 'hu').build().toUriString()}}">Magyar</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-4">
+                    <a class="nav-link active button-decoration" href="/logout" th:text=#{nav.logout}>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container d-flex justify-content-center w-100  mt-lx-5 mt-lg-4 mt-md-3 mt-xs-3">
+        <div class="profile-container  mt-lx-5 mt-lg-4 mt-md-3 mt-xs-3" id="first-container">
+            <h1 class="mb-4 profile-title" th:text=#{profile.title}>Your profile</h1>
+            <p class="pl-5">
+                <span class="data-name" th:text="#{player.name} + ': '">Name: </span>
+                <span class="float-right"
+                    th:text="${playerModel.firstName} + ' ' + ${playerModel.lastName}"></span>
+            </p>
+            <p class="pl-5">
+                <span class="data-name" th:text="#{player.username} + ': '">Username: </span>
+                <span class="float-right" th:text="${playerModel.username}"></span>
+            </p>
+            <p class="pl-5">
+                <span class="data-name" th:text="#{player.email} + ': '">Email: </span>
+                <span class="float-right" th:text="${playerModel.email}"></span>
+            </p>
+            <p class="pl-5">
+                <span class="data-name" th:text="#{player.birth} + ': '">Birth date: </span>
+                <span class="float-right" th:text="${playerModel.birth}"></span>
+            </p>
+            <div class="dropdown-divider"></div>
+            <h1 class="mb-4 profile-title" th:text=#{profile.balance}>Balance</h1>
+            <p class="pl-5">
+                <span class="data-name" th:text=#{balance.active}>Active: </span>
+                <span class="float-right"
+                    th:text="${playerModel.balance != null} ? ${playerModel.balance} + ' ' + ${playerModel.currency} : '0' + ' ' + ${playerModel.currency}"></span>
+            </p>
+            <p class="pl-5">
+                <span class="data-name" th:text=#{balance.ingame}>In game: </span>
+                <span class="float-right"
+                    th:text="${playerModel.balance != null} ? ${ingameMoney} + ' ' + ${playerModel.currency} : '0' + ' ' + ${playerModel.currency}"></span>
+            </p>
+            <div class="dropdown-divider"></div>
+            <p class="pl-5">
+                <span class="data-name" th:text=#{balance.total}>Total: </span>
+                <span class="float-right"
+                    th:text="${playerModel.balance != null} ? ${playerModel.balance + ingameMoney} + ' ' + ${playerModel.currency} : '0' + ' ' + ${playerModel.currency}"></span>
+            </p>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+</body>
+</html>

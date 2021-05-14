@@ -1,0 +1,118 @@
+[
+	{
+		"title": "Arsenal vs Chelsea",
+		"startTime": "2020-07-17T16:42:34.077627200",
+		"bets": [
+			{
+				"description": "The winner of the game",
+				"betType": "WINNER",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					},
+					{
+						"description": "Chelsea",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					}
+				]
+			},
+			{
+				"description": "Final score",
+				"betType": "FINAL_SCORE",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					},
+					{
+						"description": "Chelsea",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Arsenal vs Chelsea",
+		"startTime": "2020-07-17T16:42:34.111621700",
+		"bets": [
+			{
+				"description": "The winner of the game",
+				"betType": "WINNER",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					},
+					{
+						"description": "Chelsea",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					}
+				]
+			},
+			{
+				"description": "Final score",
+				"betType": "FINAL_SCORE",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					},
+					{
+						"description": "Chelsea",
+						"outcomeOdds": [
+							{
+								"validFrom": "2007-12-03T10:15:30",
+								"validUntil": "2007-12-03T10:15:30",
+								"value": 10
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]
