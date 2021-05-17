@@ -1,0 +1,663 @@
+[
+	{
+		"title": "Arsenal vs Chelsea",
+		"homeTeam": "Arsenal",
+		"awayTeam": "Chelsea",
+		"startTime": "2021-10-17T12:00:00",
+		"endTime": "2021-10-17T14:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"value": 2.1
+					},
+					{
+						"description": "Draw",
+						"value": 1.6
+					},
+					{
+						"description": "Chelsea",
+						"value": 1.8
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 2.1
+					},
+					{
+						"description": "1:0",
+						"value": 2.6
+					},
+					{
+						"description": "0:1",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					},
+					{
+						"description": "0:2",
+						"value": 4.1
+					},
+					{
+						"description": "2:0",
+						"value": 5.1
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Liverpool vs Manchester United",
+		"homeTeam": "Liverpool",
+		"awayTeam": "Manchester United",
+		"startTime": "2021-10-20T18:00:00",
+		"endTime": "2021-10-20T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Liverpool",
+						"value": 1.9
+					},
+					{
+						"description": "Draw",
+						"value": 2.3
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.5
+					},
+					{
+						"description": "1:0",
+						"value": 1.7
+					},
+					{
+						"description": "1:1",
+						"value": 2.7
+					},
+					{
+						"description": "0:2",
+						"value": 3.6
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					},
+										{
+						"description": "1:2",
+						"value": 4.6
+					},
+					{
+						"description": "2:1",
+						"value": 4.1
+					},
+					{
+						"description": "2:2",
+						"value": 3.9
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Real Madrid vs Barcelona",
+		"homeTeam": "Real Madrid",
+		"awayTeam": "Barcelona",
+		"startTime": "2021-10-30T16:00:00",
+		"endTime": "2021-10-30T18:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Real Madrid",
+						"value": 2.1
+					},
+					{
+						"description": "Barcelona",
+						"value": 1.9
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.5
+					},
+					{
+						"description": "1:0",
+						"value": 2.4
+					},
+					{
+						"description": "1:1",
+						"value": 1.8
+					},
+					{
+						"description": "0:1",
+						"value": 2.1
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					},
+					{
+						"description": "0:2",
+						"value": 3.7
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Dortmund vs Liverpool",
+		"homeTeam": "Dortmund",
+		"awayTeam": "Liverpool",
+		"startTime": "2021-10-16T18:00:00",
+		"endTime": "2021-10-16T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Draw",
+						"value": 2.3
+					},
+					{
+						"description": "Liverpool",
+						"value": 1.8
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.8
+					},
+					{
+						"description": "1:0",
+						"value": 2.4
+					},
+					{
+						"description": "1:1",
+						"value": 2.5
+					},
+					{
+						"description": "0:1",
+						"value": 2.6
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Arsenal vs Barcelona",
+		"homeTeam": "Arsenal",
+		"awayTeam": "Barcelona",
+		"startTime": "2021-10-19T18:00:00",
+		"endTime": "2021-10-19T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"value": 1.7
+					},
+					{
+						"description": "Draw",
+						"value": 2.4
+					},
+					{
+						"description": "Barcelona",
+						"value": 1.3
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 2.7
+					},
+					{
+						"description": "1:0",
+						"value": 2.1
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					},
+					{
+						"description": "0:2",
+						"value": 2.9
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Real Madrid vs Chelsea",
+		"homeTeam": "Real Madrid",
+		"awayTeam": "Chelsea",
+		"startTime": "2021-10-22T20:00:00",
+		"endTime": "2021-10-22T22:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Real Madrid",
+						"value": 1.5
+					},
+					{
+						"description": "Draw",
+						"value": 2.1
+					},
+					{
+						"description": "Chelsea",
+						"value": 1.6
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3.2
+					},
+					{
+						"description": "0:1",
+						"value": 2.8
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Bayern München vs Porto",
+		"homeTeam": "Bayern München",
+		"awayTeam": "Porto",
+		"startTime": "2021-10-30T18:00:00",
+		"endTime": "2021-10-30T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Draw",
+						"value": 2.5
+					},
+					{
+						"description": "Porto",
+						"value": 1.9
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Arsenal vs Marseille",
+		"homeTeam": "Arsenal",
+		"awayTeam": "Marseille",
+		"startTime": "2021-10-29T18:00:00",
+		"endTime": "2021-10-29T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"value": 1.7
+					},
+					{
+						"description": "Draw",
+						"value": 1.1
+					},
+					{
+						"description": "Marseille",
+						"value": 2.6
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					},
+					{
+						"description": "0:2",
+						"value": 4
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Manchester City vs Marseille",
+		"homeTeam": "Manchester City",
+		"awayTeam": "Marseille",
+		"startTime": "2020-10-17T18:00:00",
+		"endTime": "2020-10-17T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Manchester City",
+						"value": 1.3
+					},
+					{
+						"description": "Draw",
+						"value": 2.7
+					},
+					{
+						"description": "Marseille",
+						"value": 1.7
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					},
+					{
+						"description": "0:2",
+						"value": 4
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Inter vs Marseille",
+		"homeTeam": "Inter",
+		"awayTeam": "Marseille",
+		"startTime": "2020-05-17T12:00:00",
+		"endTime": "2020-05-17T12:30:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Inter",
+						"value": 1.8
+					},
+					{
+						"description": "Draw",
+						"value": 2.4
+					},
+					{
+						"description": "Marseille",
+						"value": 1.7
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					}
+				]
+			}
+		]
+	},
+		{
+		"title": "Arsenal vs Marseille",
+		"homeTeam": "Arsenal",
+		"awayTeam": "Marseille",
+		"startTime": "2021-06-01T18:00:00",
+		"endTime": "2021-06-01T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Arsenal",
+						"value": 1.7
+					},
+					{
+						"description": "Draw",
+						"value": 1.1
+					},
+					{
+						"description": "Marseille",
+						"value": 2.6
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					},
+					{
+						"description": "0:2",
+						"value": 4
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Manchester City vs Porto",
+		"homeTeam": "Manchester City",
+		"awayTeam": "Porto",
+		"startTime": "2020-05-30T16:00:00",
+		"endTime": "2020-05-30T18:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Manchester City",
+						"value": 1.2
+					},
+					{
+						"description": "Draw",
+						"value": 2.1
+					},
+					{
+						"description": "Porto",
+						"value": 1.6
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					},
+					{
+						"description": "0:2",
+						"value": 4
+					},
+					{
+						"description": "2:0",
+						"value": 4.2
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Porto vs Shatar",
+		"homeTeam": "Porto",
+		"awayTeam": "Shatar",
+		"startTime": "2020-05-20T18:00:00",
+		"endTime": "2020-05-20T20:00:00",
+		"bets": [
+			{
+				"betType": "WINNER",
+				"description": "The winner of the game",
+				"outcomes": [
+					{
+						"description": "Porto",
+						"value": 1.7
+					},
+					{
+						"description": "Draw",
+						"value": 2.3
+					},
+					{
+						"description": "Shatar",
+						"value": 1.9
+					}
+				]
+			},
+			{
+				"betType": "FINAL_SCORE",
+				"description": "Final score",
+				"outcomes": [
+					{
+						"description": "0:0",
+						"value": 1.6
+					},
+					{
+						"description": "1:0",
+						"value": 2.2
+					},
+					{
+						"description": "1:1",
+						"value": 3
+					}
+				]
+			}
+		]
+	}
+]

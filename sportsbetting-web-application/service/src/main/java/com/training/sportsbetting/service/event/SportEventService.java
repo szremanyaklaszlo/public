@@ -28,6 +28,7 @@ public class SportEventService implements SportEventCrud, SportEventActiveSearch
 
     @Override
     public void saveAll(List<SportEvent> sportEvents) {
+        Objects.requireNonNull(sportEvents, "Sport event list must not be null.");
         sportEvents.forEach(sportEvent -> Objects.requireNonNull(sportEvent, "Sport event must not be null."));
         sportEventRepository.saveAll(sportEvents);
     }
@@ -35,7 +36,7 @@ public class SportEventService implements SportEventCrud, SportEventActiveSearch
     @Override
     public SportEvent findById(Long id) {
         Objects.requireNonNull(id, "Id must not be null.");
-        return sportEventRepository.findByIdNative(id)
+        return sportEventRepository.findById(id)
                 .orElseThrow(() -> new SportEventNotFoundException("Sport event has not been found by id=" + id + "."));
     }
 

@@ -20,10 +20,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/home", "/events", "/registration", "/css/**", "/js/**", "/api/sportEvent/**").permitAll()
+                .antMatchers("/", "/home", "/events", "/registration", "/css/**", "/js/**").permitAll()
                 .antMatchers("/profile", "/bet", "/history").hasRole("USER")
                 .and()
-                .csrf().disable()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/events")
                 .and()
                 .logout()

@@ -63,8 +63,8 @@ public class EventsController {
     public List<SportEventModel> getSportEvents(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "5") int pageSize,
-            @RequestParam(defaultValue = "title") String sortField,
-            @RequestParam(defaultValue = "DESC") String sortDirection,
+            @RequestParam(defaultValue = "startTime") String sortField,
+            @RequestParam(defaultValue = "ASC") String sortDirection,
             @RequestParam(defaultValue = "") String tableSearchFilter,
             Model model) {
         Pageable pageable = getPagable(page, pageSize, sortField, sortDirection);

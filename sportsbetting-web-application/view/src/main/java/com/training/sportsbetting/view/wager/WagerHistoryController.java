@@ -37,8 +37,8 @@ public class WagerHistoryController {
     public List<WagerModel> getSportEvents(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "5") int pageSize,
-            @RequestParam(defaultValue = "validFrom") String sortField,
-            @RequestParam(defaultValue = "DESC") String sortDirection,
+            @RequestParam(defaultValue = "outcome.bet.sportEvent.startTime") String sortField,
+            @RequestParam(defaultValue = "ASC") String sortDirection,
             Model model) {
         Pageable pageable = getPagable(page, pageSize, sortField, sortDirection);
         String username = getPlayerName();

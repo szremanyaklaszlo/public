@@ -19,6 +19,7 @@
 		<module>domain</module>
 		<module>service</module>
 		<module>view</module>
+		<module>api</module>
 	</modules>
 
 	<properties>
@@ -67,6 +68,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.22</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -104,6 +106,11 @@
 			<dependency>
 				<groupId>com.training.sportsbetting</groupId>
 				<artifactId>view</artifactId>
+				<version>${module-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.training.sportsbetting</groupId>
+				<artifactId>api</artifactId>
 				<version>${module-version}</version>
 			</dependency>
 		</dependencies>

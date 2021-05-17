@@ -24,6 +24,6 @@ interface SportEventRepository extends JpaRepository<SportEvent, Long> {
     Page<SportEvent> findActiveSportEventsByFilter(String tableSearchFilter, Pageable pageable);
 
     @Query(value = "SELECT se FROM SportEvent se WHERE se.id = ?1")
-    Optional<SportEvent> findByIdNative(Long id);
+    Optional<SportEvent> findById(Long id);
 
 }
